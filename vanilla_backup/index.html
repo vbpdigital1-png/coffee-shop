@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caffeine - Discover The Art Of Perfect Coffee</title>
+  <meta name="description" content="Experience premium dark espresso and editorial warmth at Caffeine. Savor rich flavors, explore our menu, and stay up to date.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header id="main-header" class="site-header">
+    <div class="header-container">
+      <a href="#" class="logo" id="header-logo">Caffeine</a>
+      <nav class="nav-menu" id="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#facilities" class="nav-link">Facilities</a>
+      </nav>
+      <div class="header-utilities">
+        <a href="#signin" class="signin-btn">Sign In</a>
+        <button class="search-btn" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-open"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-close"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <nav class="drawer-nav">
+      <a href="#home" class="drawer-link">Home</a>
+      <a href="#menu" class="drawer-link">Menu</a>
+      <a href="#about" class="drawer-link">About Us</a>
+      <a href="#facilities" class="drawer-link">Facilities</a>
+      <a href="#signin" class="drawer-link drawer-signin">Sign In</a>
+    </nav>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <!-- Faint Watermark Text -->
+    <div class="hero-watermark">Caffeine</div>
+    
+    <div class="hero-container">
+      <div class="hero-content reveal-up">
+        <h1 class="hero-title">Discover The<br>Art Of Perfect<br>Coffee</h1>
+        <p class="hero-subtitle">Experience The Rich And Bold Flavors Of Our Exquisite Coffee Beans, Crafted By Passion-Driven Baristas. Start Your Day Right.</p>
+        <div class="hero-ctas">
+          <a href="#menu" class="btn btn-primary">
+            Order Now
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#about" class="btn btn-secondary">Explore More</a>
+        </div>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">50+</span>
+            <span class="stat-label">Item Of Coffee</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">20+</span>
+            <span class="stat-label">Order Running</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">2K+</span>
+            <span class="stat-label">Happy Customer</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-visual reveal-fade">
+        <div class="coffee-splash-wrapper">
+          <img src="assets/hero_coffee_splash.png" alt="Caffeine Coffee Splash" class="hero-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alternating Feature Section A -->
+  <section id="about" class="feature-section light-theme">
+    <div class="feature-container">
+      <div class="feature-visual reveal-left">
+        <div class="image-offset-frame">
+          <div class="geometric-accent line-left"></div>
+          <img src="assets/barista_latte_art.png" alt="Barista pouring latte art" class="feature-image">
+        </div>
+      </div>
+      <div class="feature-content reveal-right">
+        <h2 class="feature-title">Coffee Heaven</h2>
+        <p class="feature-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <a href="#menu" class="btn btn-dark">
+          View all
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alternating Feature Section B -->
+  <section id="facilities" class="feature-section feature-inverted light-theme">
+    <div class="feature-container">
+      <div class="feature-content reveal-left">
+        <h2 class="feature-title">Jean's Coffee</h2>
+        <p class="feature-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+        <a href="#menu" class="btn btn-dark">
+          View all
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="feature-visual reveal-right">
+        <div class="image-offset-frame">
+          <div class="geometric-accent line-right"></div>
+          <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=600&auto=format&fit=crop" alt="Iced and hot coffee selection" class="feature-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Selling Item Section -->
+  <section id="menu" class="best-selling-section caramel-theme">
+    <div class="best-selling-container">
+      <header class="section-header reveal-up">
+        <h2 class="section-title">Best Selling Item</h2>
+        <p class="section-subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+      </header>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs reveal-up">
+        <button class="filter-tab active" data-category="all">All</button>
+        <button class="filter-tab" data-category="black">Black</button>
+        <button class="filter-tab" data-category="espresso">Espresso</button>
+        <button class="filter-tab" data-category="doppio">Doppio</button>
+      </div>
+
+      <!-- Product Slider Grid -->
+      <div class="slider-wrapper reveal-fade">
+        <div class="product-grid" id="product-slider">
+          
+          <!-- Card 1 (Cappuccino - Espresso Category) -->
+          <div class="product-card" data-category="espresso">
+            <div class="card-inner">
+              <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=500&auto=format&fit=crop" alt="Cappuccino" class="product-image">
+              </div>
+              <h3 class="product-name">Cappuccino</h3>
+              <button class="btn-order-now">Order Now</button>
+            </div>
+          </div>
+
+          <!-- Card 2 (Americano - Black Category) -->
+          <div class="product-card" data-category="black">
+            <div class="card-inner">
+              <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500&auto=format&fit=crop" alt="Americano" class="product-image">
+              </div>
+              <h3 class="product-name">Americano</h3>
+              <button class="btn-order-now">Order Now</button>
+            </div>
+          </div>
+
+          <!-- Card 3 (Espresso - Doppio/Espresso Category) -->
+          <div class="product-card" data-category="doppio">
+            <div class="card-inner">
+              <div class="card-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1510707577719-0d1583af622b?q=80&w=500&auto=format&fit=crop" alt="Espresso" class="product-image">
+              </div>
+              <h3 class="product-name">Espresso</h3>
+              <button class="btn-order-now">Order Now</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      <div class="slider-controls reveal-up">
+        <button class="slider-arrow btn-prev" aria-label="Previous Product">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="slider-arrow btn-next" aria-label="Next Product">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="testimonial-section light-theme">
+    <div class="testimonial-container">
+      <h2 class="testimonial-header reveal-up">What Our Customer Says</h2>
+      
+      <div class="testimonial-slider-wrapper">
+        <button class="nav-arrow testimonial-prev" aria-label="Previous Testimonial">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+
+        <div class="testimonial-card-outer reveal-scale">
+          <!-- Customer Avatar breaks through the top border -->
+          <div class="avatar-container">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop" alt="Shalima Hayden" class="testimonial-avatar">
+          </div>
+          
+          <div class="testimonial-card-inner">
+            <p class="testimonial-text">"I Have Tested Caffeine Coffee Many Times, Really Amazing To Me. The Combination Was Very Good. One Thing Is To Serve Extraordinary Coffee With Caffeine. I Will Order From Caffeine For Any Of My Coffee Needs."</p>
+            <div class="star-rating">
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+              <span class="star">&#9733;</span>
+            </div>
+            <h4 class="reviewer-name">Shalima Hayden</h4>
+          </div>
+        </div>
+
+        <button class="nav-arrow testimonial-next" aria-label="Next Testimonial">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Banner -->
+  <div class="newsletter-banner reveal-up">
+    <div class="newsletter-content">
+      <h3 class="newsletter-title">Stay Up To Date On<br>All News And Offers.</h3>
+    </div>
+    <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+      <div class="input-group">
+        <input type="email" placeholder="Enter Your Email Address" required class="newsletter-input">
+        <button type="submit" class="newsletter-submit" aria-label="Subscribe">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer & Brand Section -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <!-- Brand Block -->
+      <div class="footer-col brand-col">
+        <div class="brand-box">
+          <span class="brand-logo">Caffeine</span>
+        </div>
+        <p class="brand-desc">Enjoy Better And Better Quality Coffee With Caffeine.</p>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="footer-col contact-col">
+        <h4 class="footer-col-title">Contact Us</h4>
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:Caffeine@Gmail.Com">Caffeine@Gmail.Com</a></li>
+          <li><strong>Call Us:</strong> <a href="tel:+122156251420">(221) 562 - 51420</a></li>
+          <li><strong>Text Us:</strong> <a href="sms:+122156251420">(221) 562 - 51420</a></li>
+          <li><strong>Address:</strong> 311 Brooklyn Street Covington, VA 24426</li>
+        </ul>
+      </div>
+      
+      <!-- Social Video & Follow Us -->
+      <div class="footer-col social-col">
+        <div class="video-thumbnail-container">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop" alt="Coffee shop atmosphere" class="video-thumbnail">
+          <button class="play-overlay" aria-label="Play video" onclick="alert('Playing brand video...')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="play-icon"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          </button>
+        </div>
+        <div class="follow-us-section">
+          <span class="follow-label">Follow Us</span>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Pinterest">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">Copyright 2026 Tophats Agency</p>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
