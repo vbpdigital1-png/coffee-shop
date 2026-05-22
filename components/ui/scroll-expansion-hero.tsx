@@ -166,9 +166,9 @@ const ScrollExpandMedia = ({
       </div>
 
       {/* Content Section below the hero */}
-      <motion.div style={{ opacity: contentFadeIn }} className="relative z-30 bg-[#110B07] min-h-screen">
+      <div className="relative z-30 bg-[#110B07] min-h-screen">
         {children}
-      </motion.div>
+      </div>
     </div>
   );
 };
