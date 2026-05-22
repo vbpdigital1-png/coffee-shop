@@ -324,7 +324,7 @@ export default function Home() {
 
               {/* Product Slider Grid (Framer Motion Layout) */}
               <div className="slider-wrapper reveal-fade w-full" ref={sliderRef}>
-                <motion.div layout className="product-grid w-max pb-8">
+                <motion.div layout className="product-grid pb-8 snap-x snap-mandatory">
                   <AnimatePresence mode="popLayout">
                     {filteredProducts.map((product) => (
                       <motion.div 
@@ -334,7 +334,7 @@ export default function Home() {
                         exit={{ opacity: 0, scale: 0.9 }}
                         transition={{ duration: 0.4, type: 'spring', bounce: 0.2 }}
                         key={product.name} 
-                        className="product-card min-w-[300px]"
+                        className="product-card min-w-[280px] snap-center sm:snap-start"
                       >
                         <div className="card-inner">
                           <div className="card-image-wrapper">
@@ -377,7 +377,7 @@ export default function Home() {
                   <ChevronLeft size={24} />
                 </button>
 
-                <div className="testimonial-card-outer w-full relative min-h-[400px] sm:min-h-[350px]">
+                <div className="testimonial-card-outer w-full relative min-h-[350px] flex items-center justify-center">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeTestimonialIndex}
@@ -385,10 +385,10 @@ export default function Home() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      className="absolute inset-0 flex flex-col items-center pt-20 px-4 sm:px-10 text-center"
+                      className="w-full flex flex-col items-center text-center mt-12"
                     >
                       {/* Customer Avatar */}
-                      <div className="avatar-container -mt-[110px] sm:-mt-[130px] mb-8">
+                      <div className="avatar-container -mt-[140px] mb-8">
                         <Image 
                           src={TESTIMONIALS[activeTestimonialIndex].avatar} 
                           alt={TESTIMONIALS[activeTestimonialIndex].name} 
