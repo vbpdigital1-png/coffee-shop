@@ -163,7 +163,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[#110B07] text-white min-h-screen relative overflow-hidden">
+    <div className="bg-[#110B07] text-white min-h-screen relative overflow-x-hidden">
       
       {/* Toast Notification */}
       <AnimatePresence>
