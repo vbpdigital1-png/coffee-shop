@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import ScrollExpandMedia from '@/components/ui/scroll-expansion-hero';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Search, Menu, X, ChevronLeft, ChevronRight, Play, CheckCircle, ArrowRight } from 'lucide-react';
 
 // Types
 interface Product {
@@ -79,6 +81,7 @@ export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
+  const [showToast, setShowToast] = useState(false);
 
   // Slider reference
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -152,9 +155,31 @@ export default function Home() {
     setActiveTestimonialIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
   };
 
+  // Form submission
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 4000);
+  };
+
   return (
-    <div className="bg-[#110B07] text-white min-h-screen relative">
+    <div className="bg-[#110B07] text-white min-h-screen relative overflow-hidden">
       
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="fixed bottom-8 right-8 bg-[#D6BA9D] text-[#110B07] px-6 py-4 rounded-none shadow-2xl flex items-center gap-3 z-[9999] font-medium"
+          >
+            <CheckCircle size={20} />
+            Successfully subscribed to the Caffeine Newsletter!
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Navigation Bar */}
       <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-container">
@@ -168,11 +193,9 @@ export default function Home() {
           </nav>
 
           <div className="header-utilities">
-            <a href="#signin" className="signin-btn">Sign In</a>
+            {/* <a href="#signin" className="signin-btn">Sign In</a> */}
             <button className="search-btn" aria-label="Search">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
-              </svg>
+              <Search size={20} />
             </button>
             {/* Mobile Menu Toggle */}
             <button 
@@ -180,15 +203,7 @@ export default function Home() {
               onClick={() => setIsDrawerOpen(!isDrawerOpen)}
               aria-label="Toggle Menu"
             >
-              {isDrawerOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 6 6 18" /><path d="m6 6 12 12" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" />
-                </svg>
-              )}
+              {isDrawerOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -201,7 +216,7 @@ export default function Home() {
           <a href="#menu" className="drawer-link" onClick={() => setIsDrawerOpen(false)}>Menu</a>
           <a href="#about" className="drawer-link" onClick={() => setIsDrawerOpen(false)}>About Us</a>
           <a href="#footer" className="drawer-link" onClick={() => setIsDrawerOpen(false)}>Facilities</a>
-          <a href="#signin" className="drawer-link drawer-signin" onClick={() => setIsDrawerOpen(false)}>Sign In</a>
+          {/* <a href="#signin" className="drawer-link drawer-signin" onClick={() => setIsDrawerOpen(false)}>Sign In</a> */}
         </nav>
       </div>
 
@@ -239,9 +254,7 @@ export default function Home() {
                 <p className="feature-desc">Experience the pinnacle of coffee crafting. Our baristas are trained to extract full complexity, aroma, and delicate flavor profiles, pouring a masterpiece in every single cup of rich espresso.</p>
                 <a href="#menu" className="btn btn-dark">
                   View Menu
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="ml-2 inline">
-                    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                  </svg>
+                  <ArrowRight size={18} className="ml-2 inline" />
                 </a>
               </div>
             </div>
@@ -255,9 +268,7 @@ export default function Home() {
                 <p className="feature-desc">Sourced responsibly from selected high-altitude farms, our special roast highlights bright, natural notes. Perfectly balanced with creamy texture to ensure you feel at peace with every single sip.</p>
                 <a href="#menu" className="btn btn-dark">
                   Explore Blend
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="ml-2 inline">
-                    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                  </svg>
+                  <ArrowRight size={18} className="ml-2 inline" />
                 </a>
               </div>
               <div className="feature-visual reveal-right order-1 lg:order-2">
@@ -311,43 +322,46 @@ export default function Home() {
                 </button>
               </div>
 
-              {/* Product Slider Grid */}
-              <div className="slider-wrapper reveal-fade w-full">
-                <div 
-                  ref={sliderRef}
-                  className="product-grid" 
-                >
-                  {filteredProducts.map((product, index) => (
-                    <div key={index} className="product-card">
-                      <div className="card-inner">
-                        <div className="card-image-wrapper">
-                          <Image 
-                            src={product.image} 
-                            alt={product.name} 
-                            width={300} 
-                            height={300} 
-                            className="product-image"
-                          />
+              {/* Product Slider Grid (Framer Motion Layout) */}
+              <div className="slider-wrapper reveal-fade w-full" ref={sliderRef}>
+                <motion.div layout className="product-grid w-max pb-8">
+                  <AnimatePresence mode="popLayout">
+                    {filteredProducts.map((product) => (
+                      <motion.div 
+                        layout
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.4, type: 'spring', bounce: 0.2 }}
+                        key={product.name} 
+                        className="product-card min-w-[300px]"
+                      >
+                        <div className="card-inner">
+                          <div className="card-image-wrapper">
+                            <Image 
+                              src={product.image} 
+                              alt={product.name} 
+                              width={300} 
+                              height={300} 
+                              className="product-image"
+                            />
+                          </div>
+                          <h3 className="product-name">{product.name}</h3>
+                          <button className="btn-order-now" onClick={() => alert(`Ordered ${product.name}!`)}>Order Now</button>
                         </div>
-                        <h3 className="product-name">{product.name}</h3>
-                        <button className="btn-order-now" onClick={() => alert(`Ordered ${product.name}!`)}>Order Now</button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                </motion.div>
               </div>
 
               {/* Slider Controls */}
               <div className="slider-controls reveal-up">
                 <button className="slider-arrow btn-prev" aria-label="Previous Product" onClick={slidePrev}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="m15 18-6-6 6-6"/>
-                  </svg>
+                  <ChevronLeft size={24} />
                 </button>
                 <button className="slider-arrow btn-next" aria-label="Next Product" onClick={slideNext}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="m9 18 6-6-6-6"/>
-                  </svg>
+                  <ChevronRight size={24} />
                 </button>
               </div>
             </div>
@@ -360,38 +374,45 @@ export default function Home() {
               
               <div className="testimonial-slider-wrapper">
                 <button className="nav-arrow testimonial-prev" aria-label="Previous Testimonial" onClick={testimonialPrev}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="m15 18-6-6 6-6"/>
-                  </svg>
+                  <ChevronLeft size={24} />
                 </button>
 
-                <div className="testimonial-card-outer reveal-scale min-h-[350px] flex items-center justify-center">
-                  {/* Customer Avatar breaks through the top border */}
-                  <div className="avatar-container">
-                    <Image 
-                      src={TESTIMONIALS[activeTestimonialIndex].avatar} 
-                      alt={TESTIMONIALS[activeTestimonialIndex].name} 
-                      width={100} 
-                      height={100} 
-                      className="testimonial-avatar"
-                    />
-                  </div>
-                  
-                  <div className="testimonial-card-inner">
-                    <p className="testimonial-text">{TESTIMONIALS[activeTestimonialIndex].text}</p>
-                    <div className="star-rating">
-                      {Array.from({ length: TESTIMONIALS[activeTestimonialIndex].stars }).map((_, i) => (
-                        <span key={i} className="star">&#9733;</span>
-                      ))}
-                    </div>
-                    <h4 className="reviewer-name">{TESTIMONIALS[activeTestimonialIndex].name}</h4>
-                  </div>
+                <div className="testimonial-card-outer w-full relative min-h-[400px] sm:min-h-[350px]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeTestimonialIndex}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                      className="absolute inset-0 flex flex-col items-center pt-20 px-4 sm:px-10 text-center"
+                    >
+                      {/* Customer Avatar */}
+                      <div className="avatar-container -mt-[110px] sm:-mt-[130px] mb-8">
+                        <Image 
+                          src={TESTIMONIALS[activeTestimonialIndex].avatar} 
+                          alt={TESTIMONIALS[activeTestimonialIndex].name} 
+                          width={100} 
+                          height={100} 
+                          className="testimonial-avatar"
+                        />
+                      </div>
+                      
+                      <div className="flex flex-col items-center gap-6">
+                        <p className="testimonial-text max-w-2xl">{TESTIMONIALS[activeTestimonialIndex].text}</p>
+                        <div className="star-rating">
+                          {Array.from({ length: TESTIMONIALS[activeTestimonialIndex].stars }).map((_, i) => (
+                            <span key={i} className="star">&#9733;</span>
+                          ))}
+                        </div>
+                        <h4 className="reviewer-name">{TESTIMONIALS[activeTestimonialIndex].name}</h4>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
                 <button className="nav-arrow testimonial-next" aria-label="Next Testimonial" onClick={testimonialNext}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="m9 18 6-6-6-6"/>
-                  </svg>
+                  <ChevronRight size={24} />
                 </button>
               </div>
             </div>
@@ -402,13 +423,11 @@ export default function Home() {
             <div className="newsletter-content">
               <h3 className="newsletter-title">Stay Up To Date On<br />All News And Offers.</h3>
             </div>
-            <form className="newsletter-form" onSubmit={(e) => { e.preventDefault(); alert('Subscribed successfully!'); }}>
+            <form className="newsletter-form" onSubmit={handleSubscribe}>
               <div className="input-group">
                 <input type="email" placeholder="Enter Your Email Address" required className="newsletter-input" />
                 <button type="submit" className="newsletter-submit" aria-label="Subscribe">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                  </svg>
+                  <ArrowRight size={24} />
                 </button>
               </div>
             </form>
@@ -448,9 +467,7 @@ export default function Home() {
                     className="video-thumbnail"
                   />
                   <button className="play-overlay" aria-label="Play video" onClick={() => alert('Playing brand video...')}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                      <polygon points="6 3 20 12 6 21 6 3" />
-                    </svg>
+                    <Play size={20} fill="currentColor" className="ml-1" />
                   </button>
                 </div>
                 <div className="follow-us-section">
