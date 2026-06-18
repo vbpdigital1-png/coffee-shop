@@ -25,32 +25,32 @@ const PRODUCTS: Product[] = [
   {
     name: 'Cappuccino',
     category: 'espresso',
-    image: 'https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=500&auto=format&fit=crop',
+    image: '/assets/product_cappuccino.png',
   },
   {
     name: 'Americano',
     category: 'black',
-    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500&auto=format&fit=crop',
+    image: '/assets/hero_coffee_splash.png',
   },
   {
     name: 'Espresso',
     category: 'doppio',
-    image: 'https://images.unsplash.com/photo-1510707577719-0d1583af622b?q=80&w=500&auto=format&fit=crop',
+    image: '/assets/product_espresso.png',
   },
   {
     name: 'Cold Brew',
     category: 'black',
-    image: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=500&auto=format&fit=crop',
+    image: '/assets/product_coldbrew.png',
   },
   {
     name: 'Macchiato',
     category: 'espresso',
-    image: 'https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=500&auto=format&fit=crop',
+    image: '/assets/product_macchiato.png',
   },
   {
     name: 'Ristretto',
     category: 'doppio',
-    image: 'https://images.unsplash.com/photo-1579888944880-e9834431e784?q=80&w=500&auto=format&fit=crop',
+    image: '/assets/product_ristretto.png',
   },
 ];
 
@@ -232,7 +232,7 @@ export default function Home() {
       >
         
         {/* Children content fades in once the video is expanded */}
-        <div className="w-full text-white bg-[#110B07]">
+        <div className="w-full text-white">
           
           {/* Alternating Feature Section A - Coffee Heaven */}
           <section id="about" className="feature-section light-theme -mx-8 md:-mx-16 lg:-mx-20">
@@ -341,8 +341,8 @@ export default function Home() {
                             <Image 
                               src={product.image} 
                               alt={product.name} 
-                              width={300} 
-                              height={300} 
+                              fill
+                              sizes="(max-width: 640px) 280px, 300px"
                               className="product-image"
                             />
                           </div>
